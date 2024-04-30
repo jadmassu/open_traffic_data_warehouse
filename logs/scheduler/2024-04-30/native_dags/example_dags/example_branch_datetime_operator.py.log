@@ -1,0 +1,4 @@
+[2024-04-30T00:11:58.139+0000] {processor.py:161} INFO - Started process (PID=52) to work on /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_branch_datetime_operator.py
+[2024-04-30T00:11:58.140+0000] {processor.py:830} INFO - Processing file /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_branch_datetime_operator.py for tasks to queue
+[2024-04-30T00:11:58.144+0000] {logging_mixin.py:188} INFO - [2024-04-30T00:11:58.143+0000] {dagbag.py:540} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_branch_datetime_operator.py
+[2024-04-30T00:11:58.207+0000] {processor.py:840} INFO - DAG(s) 'example_branch_datetime_operator', 'example_branch_datetime_operator_2', 'example_branch_datetime_operator_3' retrieved from /home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_branch_datetime_operator.py
