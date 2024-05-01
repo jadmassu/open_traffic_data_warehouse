@@ -1,3 +1,5 @@
 /.env
 /airflow.sh
 logs/
+
+data/
