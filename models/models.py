@@ -20,13 +20,7 @@ class VehiclePath(Base):
 
     vehicle = relationship("Vehicle", back_populates="vehicle_path")
     
-    
-    
-    
 
-
-
-Base = declarative_base()
 
 class Vehicle(Base):
     __tablename__ = 'vehicle'

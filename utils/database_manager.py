@@ -11,10 +11,16 @@ class DatabaseManager:
 
     def create_database(self):
         try:
-            self.engine.execute(f'CREATE DATABASE IF NOT EXISTS {self.database_name}')
-            self.engine.execute(f'USE {self.database_name}')
-            Base.metadata.create_all(self.engine)
+            # self.engine.execute(f'CREATE TABLE IF NOT EXISTS  {self.database_name}')
+            
+            # self.engine.execute(f'USE {self.database_name}')
+            print(f"Database '{self.database_name}--------' x")
+            
+            x  = Base.metadata.create_all(self.engine)
+            print(f"Database '{self.database_name}--------' x",x)
+            
             print(f"Database '{self.database_name}' created successfully.")
+            return x
         except Exception as e:
            print(f"Error creating database: {e}")
 
