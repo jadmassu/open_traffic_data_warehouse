@@ -23,13 +23,14 @@ from models.models import Vehicle, VehiclePath
 connection_string='postgresql+psycopg2://airflow:airflow@postgres/airflow'
 database_name='open_traffic'
 
-csv_file_path='../data/openTraffic.csv'
+csv_file_path='./data/openTraffic.csv'
 
 db_manager = DatabaseManager(connection_string, database_name)
 
-
+ 
 def create_database(ds, **kwargs):
     try:
+        print("-------------------------testtttttt  ")
        
         x =db_manager.create_database()
         print("-------------------------  ",x)

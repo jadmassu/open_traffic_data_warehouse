@@ -1,5 +1,5 @@
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import sessionmaker
 from models.models import Base 
 
@@ -9,27 +9,27 @@ class DatabaseManager:
         self.Session = sessionmaker(bind=self.engine)
         self.database_name = database_name
 
+       
     def create_database(self):
         try:
-            # self.engine.execute(f'CREATE TABLE IF NOT EXISTS  {self.database_name}')
-            
-            # self.engine.execute(f'USE {self.database_name}')
-            print(f"Database '{self.database_name}--------' x")
-            
-            x  = Base.metadata.create_all(self.engine)
-            print(f"Database '{self.database_name}--------' x",x)
-            
-            print(f"Database '{self.database_name}' created successfully.")
-            return x
+            with self.engine.connect() as connection:
+                connection.execute("COMMIT")
+                result = connection.execute(
+                    f"SELECT 1 FROM pg_database WHERE datname='{self.database_name}'"
+                )
+                exists = bool(result.fetchone())
+                if not exists:
+                    connection.execute(f'CREATE DATABASE {self.database_name}')
+                    print(f"Database '{self.database_name}' created successfully.")
+                else:
+                    print(f"Database '{self.database_name}' already exists.")
         except Exception as e:
-           print(f"Error creating database: {e}")
-
-  
+            print(f"Error creating database: {e}")
+            
     def insert_data(self, table_type, data):      
         try:           
             session = self.Session()
             session.bulk_insert_mappings(table_type, data)
-
             session.commit()
             print("Data inserted successfully.")
         except Exception as e:
