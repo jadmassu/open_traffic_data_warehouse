@@ -9,7 +9,7 @@ Base = declarative_base()
 
 class VehiclePath(Base):
     __tablename__ = 'vehicle_path'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True,autoincrement=True)
     track_id = Column(Integer, ForeignKey('vehicle.track_id'))
     lat = Column(Float)
     lon = Column(Float)
@@ -20,17 +20,11 @@ class VehiclePath(Base):
 
     vehicle = relationship("Vehicle", back_populates="vehicle_path")
     
-    
-    
-    
 
-
-
-Base = declarative_base()
 
 class Vehicle(Base):
     __tablename__ = 'vehicle'
-    track_id = Column(Integer, primary_key=True)
+    track_id = Column(Integer, primary_key=True, autoincrement=False)
     type = Column(String)
     traveled_d = Column(Float)
     avg_speed =  Column(Float)
