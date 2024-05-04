@@ -30,16 +30,14 @@ db_manager = DatabaseManager(connection_string, database_name)
  
 def create_database(ds, **kwargs):
     try:
-        print("-------------------------testtttttt  ")
-       
-        x =db_manager.create_database()
-        print("-------------------------  ",x)
+        
+       db_manager.create_database()
+        
     except Exception as e:
         print(f"An error occurred while creating the database: {e}")
 
 def load_data_into_database(ds, **kwargs):
     try:
-       
         vehicle, vehicle_path = load_data_from_csv(csv_file_path)
         db_manager.insert_data(Vehicle, vehicle)
         db_manager.insert_data(VehiclePath, vehicle_path)
