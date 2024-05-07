@@ -1,0 +1,7 @@
+/airflow/.env
+/airflow/airflow.sh
+airflow/logs/
+airflow/data/
+
+
+
