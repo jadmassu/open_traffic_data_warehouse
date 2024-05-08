@@ -23,7 +23,7 @@ class VehiclePath(Base):
 
 
 class Vehicle(Base):
-    __tablename__ = 'vehicle'
+    __tablename__ = 'vehicles'
     track_id = Column(Integer, primary_key=True, autoincrement=False)
     type = Column(String)
     traveled_d = Column(Float)

@@ -4,7 +4,7 @@ airflow/logs/
 airflow/data/
 
 
-
+dbt/dbt-env/
 
 redash/.venv
 redash/venv/
